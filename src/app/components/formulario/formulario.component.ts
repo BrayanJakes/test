@@ -60,9 +60,8 @@ export class FormularioComponent implements OnInit {
         Date: this.getDateNow()
       }
   
-      this.evaluacionService.Agregar(evaluacion)
+      return this.evaluacionService.Agregar(evaluacion)
        .subscribe((resp) => this.modalRef.close('success'));
-        return;
     } else {
 
       
@@ -88,7 +87,7 @@ export class FormularioComponent implements OnInit {
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
 
-    return `${dd}/${mm}/${yyyy}`;
+    return `${mm}/${dd}/${yyyy}`;
   }
 
 }
