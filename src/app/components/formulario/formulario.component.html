@@ -1,0 +1,60 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<div class="text-center">
+    <h3 *ngIf="id === 0">Crear Evaluación</h3>
+    <h3 *ngIf="id !== 0">Editando Evaluación</h3>
+</div>
+<br>
+ <form [formGroup]="form" (submit)="AgregarEvaluacion()" *ngIf="id === 0" >
+
+    <mat-form-field appearance="outline">
+        <mat-label>Evaluación</mat-label>
+        <textarea matInput
+        formControlName="comentario"
+        placeholder="Ingresa Una Evaluación"></textarea>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Puntaje</mat-label>
+        <input matInput
+            type="number"
+            formControlName="score">
+            <mat-error *ngIf="form.controls.score.errors?.max">
+            Debes colocar un puntaje del 1 al 10
+            </mat-error>
+      </mat-form-field>
+    
+      <div class="text-center">
+          <button mat-raised-button 
+          color="primary"
+          [disabled]="!form.valid"
+          >Agregar</button>
+      </div>
+ </form>
+
+ <form [formGroup]="form" (submit)="AgregarEvaluacion()" *ngIf="id !== 0" >
+
+    <mat-form-field appearance="outline">
+        <mat-label>Evaluación</mat-label>
+        <textarea matInput
+        formControlName="comentario"
+        placeholder="Ingresa Una Evaluación"></textarea>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Puntaje</mat-label>
+        <input matInput
+            type="number"
+            formControlName="score">
+            <mat-error *ngIf="form.controls.score.errors?.max">
+            Debes colocar un puntaje del 1 al 10
+            </mat-error>
+      </mat-form-field>
+    
+      <div class="text-center">
+          <button mat-raised-button 
+          color="primary"
+          [disabled]="!form.valid"
+          >Agregar</button>
+      </div>
+ </form>

@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">Test</mat-toolbar>
+
+
+    <div class="container  mt-5">
+        <mat-card>
+            <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+            <mat-card-title>
+                Login
+            </mat-card-title>
+    
+           <form [formGroup]="form" (submit)="logear()" >
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput
+                formControlName="email"
+                placeholder="Ingresa Email">
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                    type="password"
+                    formControlName="password"
+                    matInput placeholder="Ingresa Password">
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+
+              <div class="text-center">
+                <button mat-raised-button color="primary"
+                    [disabled]="!form.valid"
+                >Ingresar</button>
+                    <br>
+                    <br>
+                <small>Aun no tienes cuenta? <span class="text-info cursor"
+                    (click)="abrirModal()"
+                     >Click Aqui</span> </small>
+<br>
+                     <small>Eres Administrador? <span class="text-info cursor"
+                        (click)="loginAdmin()"
+                         >Click Aqui</span> </small>
+              </div>
+           </form>
+        </mat-card>
+    </div>

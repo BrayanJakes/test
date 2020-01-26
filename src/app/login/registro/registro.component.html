@@ -1,0 +1,41 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+<div class="text-center">
+    <h3>    Registro Usuario
+    </h3>
+</div>
+<br>
+
+<form [formGroup]="form" >
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput
+    formControlName="name"
+    placeholder="Ingresa Tu Nombre">
+    <mat-icon matSuffix>person</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput
+    formControlName="email"
+    placeholder="Ingresa Email">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput
+    type="password"
+    formControlName="password"
+    placeholder="Ingresa Password">
+    <mat-icon matSuffix>lock</mat-icon>
+  </mat-form-field>
+
+  <div class="text-center">
+      <button mat-raised-button [disabled]="!form.valid" 
+      (click)="guardarRegistro()"
+      color="primary">Registrar</button>
+  </div>
+</form>

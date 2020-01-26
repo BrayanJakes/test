@@ -1,0 +1,68 @@
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="text-center">
+                <h2>Evaluaciones de los usuarios </h2>
+            </div>
+            <mat-form-field >
+                <mat-label>Fecha:</mat-label>
+                <input matInput
+                    type="date"
+                    >
+              </mat-form-field>
+              &nbsp;
+              <!--<mat-form-field >
+                <mat-label>Hasta:</mat-label>
+                <input matInput
+                    type="date"
+                    >
+              </mat-form-field>-->
+              &nbsp;
+              <button mat-raised-button color="primary">Buscar</button>
+            <table class="table">
+                
+                <thead>
+                    <tr>
+                        <th>UserId</th>
+                        <th>Comment</th>
+                        <th>Score</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let e of evaluaciones">
+                        <td>{{e.UserId}}</td>
+                        <td>{{e.Comment}}</td>
+                        <td>{{e.Score}}</td>
+                        <td><mat-icon class="cursor text-primary" (click)="verInfo(e)">visibility</mat-icon>
+        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <h2>Opiniones de los usuarios </h2>
+            </div>
+
+            <table class="table">
+                
+                <thead>
+                    <tr>
+                        <th>UserId</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of opiniones">
+                        <td>{{o.UserId}}</td>
+                        <td>{{o.Description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

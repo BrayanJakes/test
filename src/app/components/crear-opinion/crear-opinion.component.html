@@ -1,0 +1,23 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<div class="text-center">
+    <h3 >Dejanos tu Opinión</h3>
+   
+</div>
+<br>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Opinión</mat-label>
+        <textarea matInput
+        [(ngModel)]="comentario"
+        placeholder="Ingresa Una Opinión"></textarea>
+      </mat-form-field>
+
+      <div class="text-center">
+          <button mat-raised-button 
+          color="primary"
+         (click)="crearOpinion()"
+         [disabled]="comentario === ''"
+          >Enviar</button>
+      </div>

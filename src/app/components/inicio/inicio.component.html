@@ -1,0 +1,52 @@
+
+<small *ngIf="id !== 9999999">
+    
+    <button mat-mini-fab
+     color="primary"
+     class=" float-left"
+     (click)="abrirModal(null, 0)"
+    matTooltip="Agregar Evaluación"><mat-icon>add</mat-icon></button>
+<div class="text-center">
+   
+    <h2> Estas son tus evaluaciones, {{nombre}} </h2>
+
+    <div *ngFor="let e of Evaluaciones" class="m-3">
+        <mat-card  *ngIf="id === e.UserId" >
+
+            <mat-card-header >
+                <strong>Fecha: {{e.Date | date:'short'}} </strong>
+                <span class="espacio"></span>
+               
+                    <button mat-mini-fab color="primary"
+                    matTooltip="Editar Evaluación"
+                    (click)="abrirModal(e, e.Id)"><mat-icon>edit</mat-icon></button>
+    
+                    <button mat-mini-fab color="primary"
+                    matTooltip="Eliminar" (click)="Delete(e.Id)"><mat-icon>clear</mat-icon></button>
+                   
+            </mat-card-header>
+    
+            <mat-card-content>
+               <strong> Comentario: </strong>
+               <strong> {{e.Comment}}</strong>
+            </mat-card-content>
+    
+            <mat-card-footer>
+                <strong> Puntaje: </strong>
+               <strong> {{e.Score}}</strong>
+               <span class="espacio"></span>
+             
+            </mat-card-footer>
+    
+        </mat-card>
+    </div>
+    
+</div>
+</small>
+
+
+
+<small *ngIf="id === 9999999">
+    <app-admin></app-admin>
+</small>
+

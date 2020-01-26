@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <button mat-button> <mat-icon>home</mat-icon> </button>
+    
+
+    <span class="espacio"></span>
+
+    <mat-icon class="cursor" 
+    *ngIf="id !== 9999999"
+    (click)="abrirModalOpinion()"
+    matTooltip="Dejano Tu opinión">mail_outline</mat-icon>
+    &nbsp;
+    &nbsp;
+    <mat-icon class="cursor"
+    (click)="salir()"
+    matTooltip="Salir">power_settings_new</mat-icon>
+</mat-toolbar>
+
+<div class="container mt-2">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- <button mat-button (click)="abrirModal()">Crear Evaluación</button> -->
