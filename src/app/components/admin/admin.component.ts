@@ -14,6 +14,9 @@ export class AdminComponent implements OnInit {
   evaluaciones = [];
   opiniones = [];
 
+  loadingE = true;
+  loadingO = true;
+
   constructor(private evaluacionService: EvaluacionService,
               private modal: MatDialog) { }
 
@@ -24,12 +27,12 @@ export class AdminComponent implements OnInit {
 
   listar(){
     this.evaluacionService.ListarEvaluacion()
-          .subscribe((resp: any) => this.evaluaciones = resp)
+          .subscribe((resp: any) => {this.loadingE = false; return this.evaluaciones = resp;})
   }
 
   listarOpinion(){
     this.evaluacionService.listarOpinion()
-      .subscribe((resp: any) => this.opiniones = resp)
+      .subscribe((resp: any) => {this.loadingO = false; return this.opiniones = resp})
   }
 
   verInfo(datos){

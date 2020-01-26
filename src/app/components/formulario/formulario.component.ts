@@ -57,10 +57,11 @@ export class FormularioComponent implements OnInit {
         UserId: Number(localStorage.getItem('id')),
         Comment: this.form.controls.comentario.value,
         Score: this.form.controls.score.value,
-        Date: `${new Date().getDay()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`
+        Date: this.getDateNow()
       }
+  
       this.evaluacionService.Agregar(evaluacion)
-        .subscribe((resp) => this.modalRef.close('success'));
+       .subscribe((resp) => this.modalRef.close('success'));
         return;
     } else {
 
@@ -70,14 +71,24 @@ export class FormularioComponent implements OnInit {
         UserId: Number(localStorage.getItem('id')),
         Comment: this.form.controls.comentario.value,
         Score: this.form.controls.score.value,
-        Date: `${new Date().getDay()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`
+        Date: this.getDateNow()
       }
-      this.evaluacionService.editar(evaluacion, this.id)
-        .subscribe((resp) => this.modalRef.close('success'));
+
+     this.evaluacionService.editar(evaluacion, this.id)
+       .subscribe((resp) => this.modalRef.close('success'));
 
     }
 
 
+  }
+
+  getDateNow() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    return `${dd}/${mm}/${yyyy}`;
   }
 
 }

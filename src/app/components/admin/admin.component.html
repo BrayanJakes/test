@@ -6,6 +6,9 @@
             <div class="text-center">
                 <h2>Evaluaciones de los usuarios </h2>
             </div>
+            <mat-progress-bar mode="indeterminate" *ngIf="loadingE" ></mat-progress-bar>
+
+
             <mat-form-field >
                 <mat-label>Fecha:</mat-label>
                 <input matInput
@@ -35,7 +38,7 @@
                     <tr *ngFor="let e of evaluaciones">
                         <td>{{e.UserId}}</td>
                         <td>{{e.Comment}}</td>
-                        <td>{{e.Score}}</td>
+                        <td>{{e.Date | date:'short'}}</td>
                         <td><mat-icon class="cursor text-primary" (click)="verInfo(e)">visibility</mat-icon>
         
                         </td>
@@ -46,7 +49,9 @@
         <div class="col-md-6">
             <div class="text-center">
                 <h2>Opiniones de los usuarios </h2>
+               
             </div>
+            <mat-progress-bar mode="indeterminate" *ngIf="loadingO" ></mat-progress-bar>
 
             <table class="table">
                 
@@ -60,6 +65,7 @@
                     <tr *ngFor="let o of opiniones">
                         <td>{{o.UserId}}</td>
                         <td>{{o.Description}}</td>
+                        
                     </tr>
                 </tbody>
             </table>
