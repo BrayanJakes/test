@@ -13,6 +13,7 @@
                 <mat-label>Fecha:</mat-label>
                 <input matInput
                     type="date"
+                    [(ngModel)]="fecha"
                     >
               </mat-form-field>
               &nbsp;
@@ -23,7 +24,7 @@
                     >
               </mat-form-field>-->
               &nbsp;
-              <button mat-raised-button color="primary">Buscar</button>
+              <button mat-raised-button color="primary" (click)="buscarFecha()">Buscar</button>
             <table class="table">
                 
                 <thead>

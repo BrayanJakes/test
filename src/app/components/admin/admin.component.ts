@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
 
   evaluaciones = [];
   opiniones = [];
-
+  fecha = '';
   loadingE = true;
   loadingO = true;
 
@@ -35,6 +35,14 @@ export class AdminComponent implements OnInit {
       .subscribe((resp: any) => {this.loadingO = false; return this.opiniones = resp})
   }
 
+  buscarFecha() {
+    const fecha = `${this.fecha}T00:00:00`;
+    this.evaluaciones = this.evaluaciones.filter(e => e.Date === fecha)
+    if(this.evaluaciones.length === 0){
+      this.listar();
+    }
+  }
+
   verInfo(datos){
     this.modal.open(InfoModalComponent, {
       width: '200px',
@@ -42,5 +50,7 @@ export class AdminComponent implements OnInit {
       data: {datos}
     })
   }
+
+  
 
 }
